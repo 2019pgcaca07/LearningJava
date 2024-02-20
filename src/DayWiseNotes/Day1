@@ -1,0 +1,16 @@
+Arrays.sort() ->In Java, the Arrays.sort() method, which is used for sorting arrays, typically employs a
+ dual-pivot Quicksort algorithm for primitive types and a modified merge sort for objects. The specific sorting
+ algorithm used by Arrays.sort() can vary between different Java implementations and versions.
+ As of Java 7, the sorting algorithm used by Arrays.sort() for primitive types (like int, long, etc.) is based on
+ the dual-pivot Quicksort algorithm. This algorithm was introduced to improve the performance of Quicksort on
+ certain types of input.
+ For objects (non-primitive types), the sorting algorithm is a modified version of TimSort,
+ which is a hybrid sorting algorithm derived from merge sort and insertion sort. TimSort is
+ designed to perform well on many kinds of real-world data and is the default sorting algorithm
+ for objects.
+
+static keyword:1.We can marked member of a class[field,method,nested class] as static.
+               2.As we marked class member as static means these ,members are class level and not depends
+                on instances of class.
+                3.we can use inside the class and outside class by using class Name directly.
+                4.we can also fetch it by instances of class.
