@@ -22,6 +22,10 @@ public class MaxMinElement {
             case 3:
                 function3(arr);
                 break;
+            case 4:
+                Pair maxMin = function4(arr);
+                System.out.println("max is "+ maxMin.max + " min is "+maxMin.min);
+                break;
             default:
 
                 System.out.println("WRONG CHOICE");
@@ -55,7 +59,7 @@ public class MaxMinElement {
         int max;
     }
     private static Pair helper(int[] arr,int low,int high){
-
+       //o(n) and for recursive call o(log n) stack space
         Pair minMax = new Pair();
         //1.base case->if there is only one element
         if(low == high){
@@ -81,7 +85,44 @@ public class MaxMinElement {
         //comparing max of left and right and assign it to final maxs
         minMax.max = minMaxLeft.max> minMaxRight.max? minMaxLeft.max:minMaxRight.max;
         return minMax;
-
-
+    }
+    private static Pair function4(int[] arr){
+        int n = arr.length;
+        Pair maxMin = new Pair();
+        int i;
+        if(n%2!=0){
+            maxMin.min = arr[0];
+            maxMin.max = arr[0];
+            i=1;
+        }else{
+            if(arr[0]>arr[1]){
+                maxMin.max = arr[0];
+                maxMin.min = arr[1];
+                i=2;
+            }else{
+                maxMin.max = arr[1];
+                maxMin.min = arr[0];
+                i=2;
+            }
+        }
+        while (i<n-1){
+            if(arr[i]<arr[i+1]){
+                if(arr[i]< maxMin.min){
+                    maxMin.min = arr[i];
+                }
+                if(arr[i+1]> maxMin.max){
+                    maxMin.max = arr[i+1];
+                }
+            }else{
+                if(arr[i]>maxMin.max){
+                    maxMin.max =arr[i];
+                }
+                if(arr[i+1]<maxMin.min){
+                    maxMin.min =arr[i+1];
+                }
+            }
+            i+=2;
+        }
+        return maxMin;
     }
 }
