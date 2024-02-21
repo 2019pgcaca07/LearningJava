@@ -58,6 +58,7 @@ public class MaxMinElement {
         int min;
         int max;
     }
+    //function by dividing and search in left and right halve then compare
     private static Pair helper(int[] arr,int low,int high){
        //o(n) and for recursive call o(log n) stack space
         Pair minMax = new Pair();
@@ -86,6 +87,10 @@ public class MaxMinElement {
         minMax.max = minMaxLeft.max> minMaxRight.max? minMaxLeft.max:minMaxRight.max;
         return minMax;
     }
+    //function by comparing pairs ,if n is odd then suppose 1st element is max and min and then
+    //start with the next index i and comapre with next of i that is i+1 and then compare it with max and min
+    //and update accoprdingly .similarly if nis even 1st find 1st two of element which is max and min then start
+    //with index 2 and again by comparing the pairs then comapre it with max and min and update accordingly.
     private static Pair function4(int[] arr){
         int n = arr.length;
         Pair maxMin = new Pair();
