@@ -1,6 +1,7 @@
 package ArrayEasy;
 
 import java.util.Scanner;
+import java.util.Stack;
 
 public class ReverseArray {
     public static void main(String[] args){
@@ -20,6 +21,7 @@ public class ReverseArray {
                 break;
             case 3:
                 usingStack(arr);
+                break;
             default:
                 System.out.println("WRONG CHOICE");
         }
@@ -61,8 +63,24 @@ public class ReverseArray {
         return arr;
 
     }
+    //logic behind this is 1.push each element of array into stack
+    //then in stack the last element is at first and 2nd last is at 2nd
+    //3.so pop element from stack to form reversed array.
+    //it will take linear time o(n) to push and pop
+    //space complexity is o(n) as stack take space
     private static int[] usingStack(int[] arr){
-   return arr;
+        //creating a stack of integer
+        Stack<Integer> stk = new Stack<>();
+        //push element onto stack
+        for(int element:arr){
+            stk.push(element);
+        }
+        //pop and put it into array
+        for(int i=0;i<arr.length;i++){
+            arr[i] = stk.pop();
+        }
+        printArray(arr);
+        return arr;
 
     }
     //print array function
