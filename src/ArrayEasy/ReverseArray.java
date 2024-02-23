@@ -40,6 +40,7 @@ public class ReverseArray {
         return arr;
     }
     //2.Function using recursion
+    //Time Complexity: O(n). The recursion goes through each element once, so it’s linear.
     private static int[] usingRecursion(int[] arr,int low,int high){
        //base case when there is only one element,it also cover the case when n is odd so for one element
         //it will just return without swapping
